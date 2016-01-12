@@ -1,4 +1,9 @@
 %{"bson": {:hex, :bson, "0.4.4"},
+  "connection": {:hex, :connection, "1.0.2"},
+  "decimal": {:hex, :decimal, "1.1.1"},
+  "ecto": {:hex, :ecto, "1.1.1"},
   "exactor": {:hex, :exactor, "2.2.0"},
   "mongo": {:hex, :mongo, "0.5.4"},
+  "poolboy": {:hex, :poolboy, "1.5.1"},
+  "postgrex": {:hex, :postgrex, "0.10.0"},
   "sfmt": {:hex, :sfmt, "0.10.1"}}

@@ -14,7 +14,7 @@ defmodule Expicker.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :postgrex, :ecto]]
   end
 
   # Dependencies can be Hex packages:
@@ -29,7 +29,8 @@ defmodule Expicker.Mixfile do
   defp deps do
     [
       {:sfmt, "0.10.1"},
-      {:mongo, "0.5.4"},
+      {:ecto, "~> 1.1.1"},
+      {:postgrex, ">= 0.0.0"},
       {:bson, "~> 0.4.4"},
       {:exactor, "~> 2.2.0"}
     ]
