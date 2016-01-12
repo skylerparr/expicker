@@ -1,1 +1,4 @@
-%{"sfmt": {:hex, :sfmt, "0.10.1"}}
+%{"bson": {:hex, :bson, "0.4.4"},
+  "exactor": {:hex, :exactor, "2.2.0"},
+  "mongo": {:hex, :mongo, "0.5.4"},
+  "sfmt": {:hex, :sfmt, "0.10.1"}}

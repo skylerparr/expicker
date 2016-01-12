@@ -28,7 +28,10 @@ defmodule Expicker.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:sfmt, "0.10.1"}
+      {:sfmt, "0.10.1"},
+      {:mongo, "0.5.4"},
+      {:bson, "~> 0.4.4"},
+      {:exactor, "~> 2.2.0"}
     ]
   end
 end
