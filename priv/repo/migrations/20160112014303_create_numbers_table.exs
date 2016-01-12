@@ -6,5 +6,7 @@ defmodule Expicker.Repo.Migrations.CreateNumbersTable do
       add :numbers, :string, size: 40
       add :count, :integer
     end
+
+    create index(:numbers, [:numbers], unique: true)
   end
 end
