@@ -31,7 +31,6 @@ defmodule Expicker.Mixfile do
       {:sfmt, "0.10.1"},
       {:ecto, "~> 1.1.1"},
       {:postgrex, ">= 0.0.0"},
-      {:bson, "~> 0.4.4"},
       {:exactor, "~> 2.2.0"}
     ]
   end
