@@ -12,8 +12,8 @@ defmodule Mix.Tasks.Expicker.Start do
   end
 
   def pickem(pid) do
-    :timer.sleep(80)
     numbers = Picker.pick
+    numbers = [Picker.pick_power | numbers]
     NumberStore.store(pid, numbers)
     pickem(pid)
   end
