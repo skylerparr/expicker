@@ -7,21 +7,18 @@ defmodule NumberSaver do
   end
 
   def save do
-    registered = :erlang.registered
+    registered = :global.registered_names
     save_and_clear(registered)
   end
 
   def save_and_clear([]) do
-    :timer.sleep(4000)
-    IO.inspect "saving"
     save
   end
 
   def save_and_clear(registered) do
-    item = registered |> hd
-    item_name = Atom.to_string(item)
+    item_name = registered |> hd
     if(String.contains?(item_name, "_picker_")) do
-      pid = :erlang.whereis(item)
+      pid = :global.whereis_name(item_name)
       numbers = GenServer.call(pid, :get, :infinity)
       save_to_db(numbers)
       GenServer.cast(pid, :clear)

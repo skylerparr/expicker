@@ -5,7 +5,7 @@ defmodule Mix.Tasks.Expicker.Start do
     for id <- 0..10 do
       spawn_link(fn() -> 
         {:ok, pid} = NumberStore.start_link
-        :erlang.register(:"#{Node.self}_picker_#{id}", pid)
+        :global.register_name("#{Node.self}_picker_#{id}", pid)
         pickem(pid)
       end)
     end
@@ -15,6 +15,7 @@ defmodule Mix.Tasks.Expicker.Start do
     numbers = Picker.pick
     numbers = [Picker.pick_power | numbers]
     NumberStore.store(pid, numbers)
+    :timer.sleep(20)
     pickem(pid)
   end
 end
