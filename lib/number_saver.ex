@@ -20,8 +20,8 @@ defmodule NumberSaver do
     if(String.contains?(item_name, "_picker_")) do
       pid = :global.whereis_name(item_name)
       numbers = GenServer.call(pid, :get, :infinity)
-      save_to_db(numbers)
       GenServer.cast(pid, :clear)
+      save_to_db(numbers)
     end
     save_and_clear(registered |> tl)
   end
