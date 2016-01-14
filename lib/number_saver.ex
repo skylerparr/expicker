@@ -12,6 +12,7 @@ defmodule NumberSaver do
   end
 
   def save_and_clear([]) do
+    :timer.sleep(4000)
     save
   end
 
@@ -36,22 +37,17 @@ defmodule NumberSaver do
         limit: 1
       found = Repo.one(query)
       if(found != nil) do
-        to_save = %{found | count: count + found.count}
-        update_numbers(to_save)
+        update_numbers(found, %{count: found.count + count})
       else
-        to_save = %Numbers{numbers: num_string, count: count}
-        insert_numbers(to_save)
+        to_save = %{numbers: num_string, count: count}
+        update_numbers(%Numbers{}, to_save)
       end
     end)
   end
 
-  def insert_numbers(record) do
+  def update_numbers(record, changes) do
     record
-      |> Repo.insert
-  end
-
-  def update_numbers(record) do
-    record
-      |> Repo.update
+      |> Numbers.changeset(changes)
+      |> Repo.insert_or_update
   end
 end

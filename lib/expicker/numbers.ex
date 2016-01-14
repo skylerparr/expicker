@@ -9,5 +9,6 @@ defmodule Numbers do
 
   def changeset(numbers, params \\ :empty) do
     numbers
+      |> cast(params, ~w(numbers count), ~w())
   end
 end
